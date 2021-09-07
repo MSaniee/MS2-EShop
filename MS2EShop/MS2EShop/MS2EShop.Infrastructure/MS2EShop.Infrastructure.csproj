@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Bus\RabbitMQ\" />
+    <Folder Include="Data\MongoDb\" />
+    <Folder Include="Data\Repositories\" />
+    <Folder Include="Data\SqlServer\Dapper\" />
+    <Folder Include="Data\SqlServer\EfCore\EntityConfigurations\" />
+    <Folder Include="Data\SqlServer\EfCore\Context\" />
+    <Folder Include="Logging\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.9" />
+    <PackageReference Include="Pluralize.NET" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MS2EShop.Application\MS2EShop.Application.csproj" />
+    <ProjectReference Include="..\MS2EShop.Common\MS2EShop.Common.csproj" />
+  </ItemGroup>
+
+</Project>
