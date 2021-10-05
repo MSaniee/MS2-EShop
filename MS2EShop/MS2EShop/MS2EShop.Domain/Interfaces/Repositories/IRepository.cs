@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MS2EShop.Domain.Core.Bases;
+﻿using MS2EShop.Domain.Core.Bases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,6 @@ namespace MS2EShop.Domain.Interfaces.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class, IEntity
     {
-        DbSet<TEntity> Entities { get; }
         IQueryable<TEntity> Table { get; }
         IQueryable<TEntity> TableNoTracking { get; }
 

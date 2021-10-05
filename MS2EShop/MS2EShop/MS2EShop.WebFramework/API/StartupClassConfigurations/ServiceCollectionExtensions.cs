@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MS2EShop.Domain.Core.Settings.Site;
+using MS2EShop.Infrastructure.Data.SqlServer.EfCore.Context;
 
 namespace MS2EShop.WebFramework.API.StartupClassConfigurations
 {
@@ -10,10 +13,15 @@ namespace MS2EShop.WebFramework.API.StartupClassConfigurations
     {
         public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.AddDbContext<ApplicationDbContext>(option =>
-            //{
-            //    option.UseSqlServer(configuration.GetConnectionString("SqlServer"));
-            //});
+            services.AddDbContext<ApplicationDbContext>(option =>
+            {
+                option.UseSqlServer(configuration.GetConnectionString("SqlServer"),
+                    x => x.UseNetTopologySuite());
+            });
+        }
+        public static void AddConfigureSettings(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.Configure<SiteSettings>(configuration.GetSection(nameof(SiteSettings)));
         }
 
         public static void AddMinimalMvc(this IServiceCollection services)
