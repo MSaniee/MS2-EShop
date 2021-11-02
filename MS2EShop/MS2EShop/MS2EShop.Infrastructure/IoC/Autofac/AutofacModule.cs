@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using MS2EShop.Application.Dtos;
+using MS2EShop.Application.Interfaces.Repositories;
 using MS2EShop.Domain.Core.DILifeTimesType;
-using MS2EShop.Domain.Interfaces.Repositories;
 
 namespace MS2EShop.Infrastructure.IoC.Autofac
 {

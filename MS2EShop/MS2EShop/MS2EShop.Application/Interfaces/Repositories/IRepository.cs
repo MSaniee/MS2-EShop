@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MS2EShop.Domain.Interfaces.Repositories
+namespace MS2EShop.Application.Interfaces.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class, IEntity
     {

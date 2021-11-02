@@ -5,16 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Behaviours\" />
+    <Folder Include="Features\Users\Commands\" />
+    <Folder Include="Features\Users\Events\" />
+    <Folder Include="Features\Users\Queries\" />
     <Folder Include="Interfaces\BackgroundJobs\" />
     <Folder Include="Interfaces\BackgroundServices\" />
-    <Folder Include="Interfaces\Services\" />
     <Folder Include="BackgroundJobs\" />
     <Folder Include="BackgroundServices\" />
     <Folder Include="DataInitializer\" />
+    <Folder Include="Interfaces\Services\Users\" />
     <Folder Include="Mapping\CustomMappings\" />
+    <Folder Include="Services\Users\" />
     <Folder Include="Utilities\Constants\" />
     <Folder Include="Validations\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
