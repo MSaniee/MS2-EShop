@@ -7,25 +7,25 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MS2EShop.Application.Features.Users.Queries
+namespace MS2EShop.Application.Features.Users.Queries;
+
+public record GetUsersQuery(
+    Pagable Pagable)
+    : IRequest<List<UserDto>>;
+
+
+public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, List<UserDto>>
 {
-    public record GetUsersQuery(
-        Pagable Pagable)
-        : IRequest<List<UserDto>>;
+    private readonly IUserRepository _userRepo;
 
-
-    public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, List<UserDto>>
+    public GetUsersQueryHandler(IUserRepository userRepo)
     {
-        private readonly IUserRepository _userRepo;
+        _userRepo = userRepo ?? throw new ArgumentNullException(nameof(userRepo));
+    }
 
-        public GetUsersQueryHandler(IUserRepository userRepo)
-        {
-            _userRepo = userRepo ?? throw new ArgumentNullException(nameof(userRepo));
-        }
-
-        public Task<List<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
-        {
-            return _userRepo.GetAllUser<UserDto>(request.Pagable, cancellationToken);
-        }
+    public Task<List<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+    {
+        return _userRepo.GetAllUser<UserDto>(request.Pagable, cancellationToken);
     }
 }
+

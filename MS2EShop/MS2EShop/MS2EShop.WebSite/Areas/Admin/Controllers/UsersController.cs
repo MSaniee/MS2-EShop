@@ -7,32 +7,32 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MS2EShop.WebSite.Areas.Admin.Controllers
+namespace MS2EShop.WebSite.Areas.Admin.Controllers;
+
+[Area("Admin")]
+public class UsersController : Controller
 {
-    [Area("Admin")]
-    public class UsersController : Controller
+    private readonly IMediator _mediator;
+
+    public UsersController(IMediator mediator)
     {
-        private readonly IMediator _mediator;
+        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+    }
 
-        public UsersController(IMediator mediator)
+    public async Task<IActionResult> Index(Pagable pagable, CancellationToken cancellationToken)
+    {
+        GetUsersQuery getUsersQuery = new(new() { Page = 1, PageSize = 10 });
+        CountUsersQuery countUsersQuery = new();
+
+        UsersDto model = new()
         {
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-        }
+            Users = await _mediator.Send(getUsersQuery, cancellationToken),
+            Pagination = new(
+                pagable: pagable,
+                count: await _mediator.Send(countUsersQuery, cancellationToken))
+        };
 
-        public async Task<IActionResult> Index(Pagable pagable, CancellationToken cancellationToken)
-        {
-            GetUsersQuery getUsersQuery = new(new() { Page = 1, PageSize = 10 });
-            CountUsersQuery countUsersQuery = new();
-
-            UsersDto model = new()
-            {
-                Users = await _mediator.Send(getUsersQuery, cancellationToken),
-                Pagination = new(
-                    pagable: pagable,
-                    count: await _mediator.Send(countUsersQuery, cancellationToken))
-            };
-
-            return View(model);
-        }
+        return View(model);
     }
 }
+
