@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EFCoreSecondLevelCacheInterceptor;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MS2EShop.Domain.Core.Settings.Site;
 using MS2EShop.Infrastructure.Data.SqlServer.EfCore.Context;
+using System;
 
 namespace MS2EShop.WebFramework.API.StartupClassConfigurations
 {
@@ -13,11 +15,28 @@ namespace MS2EShop.WebFramework.API.StartupClassConfigurations
     {
         public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(option =>
-            {
-                option.UseSqlServer(configuration.GetConnectionString("SqlServer"),
-                    x => x.UseNetTopologySuite());
-            });
+            string connectionString = configuration.GetConnectionString("SqlServer");
+
+            //services.AddDbContext<ApplicationDbContext>(option =>
+            //{
+            //    option.UseSqlServer(configuration.GetConnectionString("SqlServer"),
+            //        x => x.UseNetTopologySuite());
+            //});
+
+            services.AddDbContextPool<ApplicationDbContext>((serviceProvider, optionsBuilder) =>
+                    optionsBuilder
+                        .UseSqlServer(
+                            connectionString,
+                            sqlServerOptionsBuilder =>
+                            {
+                                sqlServerOptionsBuilder
+                                    .UseNetTopologySuite()
+                                    .CommandTimeout((int)TimeSpan.FromMinutes(3).TotalSeconds)
+                                    //.EnableRetryOnFailure()
+                                    .MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                            })
+                        .AddInterceptors(serviceProvider.GetRequiredService<SecondLevelCacheInterceptor>()));
+
         }
         public static void AddConfigureSettings(this IServiceCollection services, IConfiguration configuration)
         {

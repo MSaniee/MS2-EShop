@@ -7,6 +7,7 @@ using MS2EShop.Domain.Core.DILifeTimesType;
 using MS2EShop.Domain.Core.Utilities.PagesSettings;
 using MS2EShop.Domain.Entities.UserAggregate;
 using MS2EShop.Infrastructure.Data.SqlServer.EfCore.Context;
+using MS2EShop.Infrastructure.Data.SqlServer.EfCore.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,16 +25,16 @@ namespace MS2EShop.Infrastructure.Data.Repositories.UsersAndRoles
 
         public Task<List<T>> GetAllUser<T>(Pagable pagable, CancellationToken cancellationToken)
         {
-            if (pagable.Search.HasValue())
-            {
-                Table.Where(u => u.FirstName.Contains(pagable.Search) ||
-                                 u.LastName.Contains(pagable.Search) ||
-                                 u.PhoneNumber.Contains(pagable.Search));
-            }
+            IQueryable<User> query = TableNoTracking;
 
-            return Table.OrderByDescending(u => u.RegisterDate)
-                        .Skip((pagable.Page - 1) * pagable.PageSize)
-                        .Take(pagable.PageSize)                       
+            if (pagable.Search.HasValue()) 
+                query = query.Where(u => u.FirstName.Contains(pagable.Search) ||
+                        u.LastName.Contains(pagable.Search) ||
+                        u.PhoneNumber.Contains(pagable.Search));
+
+            return query.OrderByDescending(u => u.RegisterDate)
+                        .ToPaged(pagable)
+                        .CacheInSecondLevel()
                         .ProjectToType<T>()
                         .ToListAsync(cancellationToken);
         }
@@ -52,6 +53,11 @@ namespace MS2EShop.Infrastructure.Data.Repositories.UsersAndRoles
                         .Take(pagable.PageSize)
                         .Select(mappingSelector)
                         .ToListAsync(cancellationToken);
+        }
+
+        public Task<int> GetUsersNumber(CancellationToken cancellationToken)
+        {
+            return TableNoTracking.CacheInSecondLevel().CountAsync(cancellationToken);
         }
     }
 }

@@ -7,6 +7,10 @@ using MS2EShop.Domain.Core.Settings.Site;
 using MS2EShop.WebFramework.API.StartupClassConfigurations;
 using MS2EShop.WebFramework.API.StartupClassConfigurations.Identity;
 using MS2EShop.WebFramework.WebSite.StartupClassConfigurations;
+using MS2EShop.WebFramework.WebSite.StartupClassConfigurations.Caching.EasyCaching;
+using MS2EShop.WebFramework.WebSite.StartupClassConfigurations.EFSecondLevelCache;
+using MS2EShop.WebFramework.WebSite.StartupClassConfigurations.Mapster;
+using MS2EShop.WebFramework.WebSite.StartupClassConfigurations.MediatR;
 
 namespace MS2EShop.WebSite
 {
@@ -25,12 +29,19 @@ namespace MS2EShop.WebSite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMapster();
+
             services.AddConfigureSettings(Configuration);
+
+            services.AddCustomEFSecondLevelCache();
+
+            services.AddCustomEasyCaching();
 
             services.AddDbContext(Configuration);
 
             services.AddCustomIdentity(_siteSettings.IdentitySettings);
 
+            services.AddCustomMediatR();            
 
             services.AddControllersWithViews();
         }

@@ -12,5 +12,6 @@ namespace MS2EShop.Application.Interfaces.Repositories.UsersAndRoles
     {
         Task<List<T>> GetAllUser<T>(Pagable pagable, CancellationToken cancellationToken);
         Task<List<T>> GetAllUser<T>(Expression<Func<User, T>> mappingSelector, Pagable pagable, CancellationToken cancellationToken);
+        Task<int> GetUsersNumber(CancellationToken cancellationToken);
     }
 }

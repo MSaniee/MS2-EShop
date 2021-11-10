@@ -8,7 +8,6 @@
     <Folder Include="Features\Behaviours\" />
     <Folder Include="Features\Users\Commands\" />
     <Folder Include="Features\Users\Events\" />
-    <Folder Include="Features\Users\Queries\" />
     <Folder Include="Interfaces\BackgroundJobs\" />
     <Folder Include="Interfaces\BackgroundServices\" />
     <Folder Include="BackgroundJobs\" />
@@ -23,6 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>

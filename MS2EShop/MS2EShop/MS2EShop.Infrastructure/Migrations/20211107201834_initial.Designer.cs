@@ -11,7 +11,7 @@ using NetTopologySuite.Geometries;
 namespace MS2EShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211005164852_initial")]
+    [Migration("20211107201834_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
