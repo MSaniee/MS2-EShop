@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Behaviours\" />
-    <Folder Include="Features\Users\Commands\" />
     <Folder Include="Features\Users\Events\" />
     <Folder Include="Interfaces\BackgroundJobs\" />
     <Folder Include="Interfaces\BackgroundServices\" />

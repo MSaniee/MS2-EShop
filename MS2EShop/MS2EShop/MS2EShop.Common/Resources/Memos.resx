@@ -126,6 +126,9 @@
   <data name="InvalidUserNameEntered" xml:space="preserve">
     <value>نام کاربری وارد شده صحیح نیست</value>
   </data>
+  <data name="UserIsAlreadyRegistered" xml:space="preserve">
+    <value>کاربر با این مشخصات پیش از این ثبت شده است</value>
+  </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>کاربر مورد نظر یافت نشد</value>
   </data>

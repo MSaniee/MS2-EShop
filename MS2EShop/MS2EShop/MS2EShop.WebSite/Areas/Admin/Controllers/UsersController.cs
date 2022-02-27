@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MS2EShop.Application.Dtos.Users;
 using MS2EShop.Application.Features.Users.Queries;
+using MS2EShop.Application.Utilities.Exceptions;
 using MS2EShop.Domain.Core.Utilities.PagesSettings;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,7 +16,7 @@ public class UsersController : Controller
 
     public UsersController(IMediator mediator)
     {
-        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        _mediator = mediator.ThrowIfNull();
     }
 
     public async Task<IActionResult> Index(Pagable pagable, CancellationToken cancellationToken)
@@ -34,5 +34,10 @@ public class UsersController : Controller
 
         return View(model);
     }
+
+    //public async Task<IActionResult> Create()
+    //{
+
+    //}
 }
 

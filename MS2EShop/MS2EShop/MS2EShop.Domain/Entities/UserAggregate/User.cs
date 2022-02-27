@@ -14,7 +14,7 @@ namespace MS2EShop.Domain.Entities.UserAggregate
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string Phone { get; set; }
         public string ProfilePicture { get; set; }
         public DateTime RegisterDate { get; set; }

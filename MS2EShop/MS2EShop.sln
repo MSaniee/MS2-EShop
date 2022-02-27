@@ -1,31 +1,33 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3A17FF16-5E0B-42EC-A59C-6B8B52B9A495}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{BCC33DC6-8880-452B-A177-B1C7443FC756}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS2EShop.API", "MS2EShop\MS2EShop.API\MS2EShop.API.csproj", "{2A3F0305-C62E-40C3-A5BD-337FA95257D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.API", "MS2EShop\MS2EShop.API\MS2EShop.API.csproj", "{2A3F0305-C62E-40C3-A5BD-337FA95257D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS2EShop.Application", "MS2EShop\MS2EShop.Application\MS2EShop.Application.csproj", "{2A4FF062-AF5D-4D63-93BB-065AE8133420}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.Application", "MS2EShop\MS2EShop.Application\MS2EShop.Application.csproj", "{2A4FF062-AF5D-4D63-93BB-065AE8133420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS2EShop.Common", "MS2EShop\MS2EShop.Common\MS2EShop.Common.csproj", "{86B17C12-DD12-4F71-A333-38ACAFAB80F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.Common", "MS2EShop\MS2EShop.Common\MS2EShop.Common.csproj", "{86B17C12-DD12-4F71-A333-38ACAFAB80F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedLibraries", "SharedLibraries", "{65BDD3A1-8BFA-4704-9BBF-15DEFFD5090A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS2EShop.Domain", "MS2EShop\MS2EShop.Domain\MS2EShop.Domain.csproj", "{1032C52B-9904-402C-BF3D-E899551589FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.Domain", "MS2EShop\MS2EShop.Domain\MS2EShop.Domain.csproj", "{1032C52B-9904-402C-BF3D-E899551589FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS2EShop.Domain.Core", "MS2EShop\MS2EShop.Domain.Core\MS2EShop.Domain.Core.csproj", "{60130A46-A92D-45AE-B640-F36BAB69EE7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.Domain.Core", "MS2EShop\MS2EShop.Domain.Core\MS2EShop.Domain.Core.csproj", "{60130A46-A92D-45AE-B640-F36BAB69EE7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS2EShop.Infrastructure", "MS2EShop\MS2EShop.Infrastructure\MS2EShop.Infrastructure.csproj", "{78B544E4-CF67-488A-9A26-F41473D190FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.Infrastructure", "MS2EShop\MS2EShop.Infrastructure\MS2EShop.Infrastructure.csproj", "{78B544E4-CF67-488A-9A26-F41473D190FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS2EShop.WebFramework", "MS2EShop\MS2EShop.WebFramework\MS2EShop.WebFramework.csproj", "{5C3CA7D5-9152-4D4D-960A-49F8099075A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.WebFramework", "MS2EShop\MS2EShop.WebFramework\MS2EShop.WebFramework.csproj", "{5C3CA7D5-9152-4D4D-960A-49F8099075A5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E3813878-B280-4DF2-93D9-7A4C51A0B008}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS2EShop.WebSite", "MS2EShop\MS2EShop.WebSite\MS2EShop.WebSite.csproj", "{E8683575-F922-469D-9D56-2801C4CEECC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.WebSite", "MS2EShop\MS2EShop.WebSite\MS2EShop.WebSite.csproj", "{E8683575-F922-469D-9D56-2801C4CEECC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS2EShop.BlazorWebSite", "MS2EShop.BlazorWebSite\MS2EShop.BlazorWebSite.csproj", "{04BC0501-8A08-4D2E-80EA-91A4EDDFA1AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{E8683575-F922-469D-9D56-2801C4CEECC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8683575-F922-469D-9D56-2801C4CEECC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8683575-F922-469D-9D56-2801C4CEECC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BC0501-8A08-4D2E-80EA-91A4EDDFA1AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BC0501-8A08-4D2E-80EA-91A4EDDFA1AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BC0501-8A08-4D2E-80EA-91A4EDDFA1AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BC0501-8A08-4D2E-80EA-91A4EDDFA1AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{78B544E4-CF67-488A-9A26-F41473D190FE} = {3A17FF16-5E0B-42EC-A59C-6B8B52B9A495}
 		{5C3CA7D5-9152-4D4D-960A-49F8099075A5} = {3A17FF16-5E0B-42EC-A59C-6B8B52B9A495}
 		{E8683575-F922-469D-9D56-2801C4CEECC8} = {BCC33DC6-8880-452B-A177-B1C7443FC756}
+		{04BC0501-8A08-4D2E-80EA-91A4EDDFA1AB} = {BCC33DC6-8880-452B-A177-B1C7443FC756}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E07DDD44-3502-4690-ADF8-DA84B396ABF9}
